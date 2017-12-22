@@ -1,0 +1,1 @@
+# 将hello-service 和 feign-consumer中复用的方法进行抽取，通过继承特性, 完成hello-service 服务 和 feign-consumer 消费 的重构
