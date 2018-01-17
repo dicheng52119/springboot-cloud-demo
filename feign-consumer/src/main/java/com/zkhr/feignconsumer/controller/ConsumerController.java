@@ -1,12 +1,12 @@
 package com.zkhr.feignconsumer.controller;
 
 import com.zkhr.feignconsumer.model.User;
+import com.zkhr.feignconsumer.service.EurekaService;
 import com.zkhr.feignconsumer.service.HelloService;
 import com.zkhr.feignconsumer.service.RefactorHelloService;
+import com.zkhr.feignconsumer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by dicheng on 17-12-21.
@@ -19,6 +19,12 @@ public class ConsumerController {
 
     @Autowired
     private RefactorHelloService refactorHelloService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private EurekaService eurekaService;
 
     @RequestMapping(value = "/feign-consumer", method = RequestMethod.GET)
     public String helloConsumer() {
@@ -45,6 +51,16 @@ public class ConsumerController {
         sb.append(helloService.hello("MIMI",20)).append("====继承属性之请求体请求:");
         sb.append(helloService.hello(new User("MIMI",20))).append("====");
         return sb.toString();
+    }
+
+    @RequestMapping(value = "/findUserById", method = RequestMethod.GET)
+    public User findUserById(@RequestParam("id") Integer id) {
+        return userService.findUserById(id);
+    }
+
+    @RequestMapping(value = "/findServiceInfoFromEurekaByServiceName/{serviceName}", method = RequestMethod.GET)
+    public String findServiceInfoFromEurekaByServiceName(@PathVariable("serviceName") String serviceName) {
+        return eurekaService.findServiceInfoFromEurekaByServiceName(serviceName);
     }
 
 

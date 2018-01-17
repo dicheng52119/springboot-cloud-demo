@@ -2,16 +2,21 @@ package com.zkhr.springboothello.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by dicheng on 17-12-21.
  */
 @JsonSerialize
+@Entity
+@Table(name = "user")
 public class User implements Serializable{
 
     private static final long serialVersionUID = 8354053617367666152L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
