@@ -28,6 +28,18 @@
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
 
+		<!-- 整合hystrix，其实feign中自带了hystrix，引入该依赖主要是为了使用其中的hystrix-metrics-event-stream，用于dashboard -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+
+		<!-- 使用主机名:端口/health 或 主机名:端口/hystrix.stream 查看一些信息-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>com.zkhr</groupId>
 			<artifactId>hello-service-api</artifactId>

@@ -3,13 +3,20 @@ package com.zkhr.feignconsumer;
 import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * 其实feign中自带了hystrix,如果单纯的使用hystrix功能，可以不加@EnableCircuitBreaker注解
+ * 使用@EnableCircuitBreaker注解可以使用其中的hystrix-metrics-event-stream，用于dashboard
+ */
+
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
+@EnableCircuitBreaker
 public class FeignConsumerApplication {
 
 	@Bean
