@@ -21,6 +21,7 @@
         <module>config-server</module>
         <module>config-client</module>
         <module>cloud-task</module>
+        <module>elastic-job</module>
     </modules>
 
     <packaging>pom</packaging>

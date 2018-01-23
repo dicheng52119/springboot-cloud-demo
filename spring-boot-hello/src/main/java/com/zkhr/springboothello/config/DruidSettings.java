@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by qianlong on 2016/12/21.
  */
-//@ConfigurationProperties(prefix = "spring.druid.datasource",locations = "classpath:druid-config.properties")
+//@ConfigurationProperties(prefix = "spring.druid.datasource",locations = "classpath:druid-configuration.properties")
 @Component
 @ConfigurationProperties(prefix = "spring.druid.datasource")
 @PropertySource("classpath:druid-config.properties")
