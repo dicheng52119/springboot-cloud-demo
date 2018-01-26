@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.Random;
 
 /**
@@ -32,7 +31,7 @@ public class HelloController {
         // 让处理线程等待几秒钟 测试消费者断路器  Hystrix默认超时时间为2000ms 所以这里采用0至3000的随机数以让处理过程有一定概率发生超时来触发断路器
         int sleepTime = new Random().nextInt(3000);
         logger.info("sleepTime:"+sleepTime);
-        Thread.sleep(sleepTime);
+        //Thread.sleep(sleepTime);
 
         logger.info("/hello, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
         return "Hello World";

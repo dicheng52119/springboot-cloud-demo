@@ -1,0 +1,1 @@
+package com.zkhr.streamrabbitmq.msg;

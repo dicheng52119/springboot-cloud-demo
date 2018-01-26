@@ -1,0 +1,23 @@
+#eureka config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://10.70.1.217:8000/eureka/
+
+spring:
+  application:
+    name: stream-rabbitmq
+  #rabbitmq config
+  rabbitmq:
+    host: 10.70.1.217   #rabbitMQ\u670D\u52A1\u5668\u5730\u5740
+    port: 3000          #rabbitMQ\u670D\u52A1\u5668\u7AEF\u53E3
+    username: guest
+    password: guest
+  #stream config
+  cloud:
+    stream:
+      bindings:
+        input: #channelName
+          group: test_group
+          destination: pay-trade-exchange #destination
+          contentType: text/plain
